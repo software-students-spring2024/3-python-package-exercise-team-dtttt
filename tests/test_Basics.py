@@ -6,11 +6,15 @@ def test_add():
     assert add(10, 5) == 15
     assert add(-1, 1) == 0
     assert add(-1, -1) == -2
+    assert add(-2389, 29348) == 26959
+    assert add(21987219, 8472134) == 30459353
 
 def test_subtract():
     assert subtract(10, 5) == 5
     assert subtract(-1, 1) == -2
     assert subtract(-1, -1) == 0
+    assert subtract(-2389, 29348) == -31737
+    assert subtract(21987219, 8472134) == 13515085
 
 def test_multiply():
     assert multiply(10, 5) == 50
@@ -34,20 +38,25 @@ def test_mod():
 
 def test_stringParse_addition():
     assert stringParse("10 + 5") == 15, "C: 15"
+    assert stringParse("39 + 27") == 66, "C: 66"    # Bible reference
 
 def test_stringParse_subtraction():
     assert stringParse("10 - 5") == 5, "C: 5"
+    assert stringParse("66 - 39") == 27, "C: 27"
 
 def test_stringParse_multiplication():
     assert stringParse("10 * 5") == 50, "C: 50"
+    assert stringParse("3 * 9") == 27, "C: 27"
 
 def test_stringParse_division():
     assert stringParse("10 / 2") == 5, "C: 5"
+    assert stringParse("39 / 3") == 13, "C: 13"
     with pytest.raises(ValueError):
         stringParse("10 / 0"), "C: raise ValueError for division by zero"
 
 def test_stringParse_mod():
     assert stringParse("10 mod 3") == 1, "C: 1"
+    assert stringParse("39 mod 27") == 12, "C: 12"
     with pytest.raises(ValueError):
         stringParse("10 mod 0"), "C: raise ValueError for mod by zero"
 
@@ -83,3 +92,14 @@ def test_factorial():
     assert factorial(10) == 3628800
     with pytest.raises(ValueError):
         factorial(-4), "Should raise ValueError"
+
+def test_stringParse_log():
+    assert stringParse("10 log 10") == 1, "C: 1"
+    assert stringParse("64 log 2") == 6, "C: 6"
+    with pytest.raises(ValueError):
+        stringParse("-1 mod 10"), "C: raise ValueError"
+
+def test_stringParse_log():
+    assert stringParse("2 exp 3") == 8, "C: 8"
+    assert stringParse("1 exp 10") == 1, "C: 1"
+    assert stringParse("4 exp -1") == 0.25, "C: 0.25"
