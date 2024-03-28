@@ -1,5 +1,5 @@
 import pytest
-from calc import add, subtract, multiply, divide, mod, stringParse
+from calc import add, subtract, multiply, divide, mod, stringParse, log, exp, abs, factorial
 
 
 def test_add():
@@ -58,3 +58,28 @@ def test_stringParse_invalid_input():
         stringParse("10 ^ 2"), "C: raise ValueError for unsupported operation"
     with pytest.raises(ValueError):
         stringParse("one + two"), "C: raise ValueError for non-numeric input"
+
+def test_log():
+    assert log(10, 10) == 1
+    assert log(100, 10) == 2
+    assert log(1000, 10) == 3
+    assert log(64, 2) == 6
+    with pytest.raises(ValueError):
+        log(-1,10), "Should raise ValueError"
+
+def test_exp():
+    assert exp(2, 3) == 8
+    assert exp(1, 10) == 1
+    assert exp(4, -1) == 0.25 
+
+def test_abs():
+    assert abs(0) == 0
+    assert abs(-2) == 2
+    assert abs(3) == 3
+
+def test_factorial():
+    assert factorial(0) == 1
+    assert factorial(3) == 6
+    assert factorial(10) == 3628800
+    with pytest.raises(ValueError):
+        factorial(-4), "Should raise ValueError"
