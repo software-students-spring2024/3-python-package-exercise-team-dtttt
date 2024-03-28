@@ -38,6 +38,10 @@ def stringParse(input):
         return divide(x, y)
     elif operator.lower() == 'mod':
         return mod(x, y)
+    elif operator.lower() == 'log':
+        return log(x, y)
+    elif operator.lower() == 'exp':
+        return exp(x, y)
     else:
         raise ValueError(f"Unsupported operation: {operator}")
 
@@ -52,7 +56,7 @@ def exp(x, y):
         x = 1/x
         y = -y
     res = 1
-    for i in range(y):
+    for i in range(int(y)):
         res *= x
     return res
 
