@@ -1,5 +1,5 @@
 import pytest
-from calc import add, subtract, multiply, divide, mod, stringParse, log, exp, abs, factorial
+from calc import add, subtract, multiply, divide, mod, stringParse, log, exp, abs, factorial, mean, median, mode
 
 
 def test_add():
@@ -103,3 +103,23 @@ def test_stringParse_log():
     assert stringParse("2 exp 3") == 8, "C: 8"
     assert stringParse("1 exp 10") == 1, "C: 1"
     assert stringParse("4 exp -1") == 0.25, "C: 0.25"
+
+def test_mean():
+    assert mean([1, 2, 3, 4, 5]) == 3
+    assert mean([0, 10, 20, 30]) == 15
+    assert mean([-1, 1]) == 0
+    assert mean([1]) == 1
+
+def test_median():
+    assert median([1, 3, 2]) == 2
+    assert median([1, 2, 3, 4]) == 2.5
+    assert median([7, 8, 3, 1]) == 5
+    assert median([-2, -1, -3]) == -2
+    assert median([1]) == 1
+
+def test_mode():
+    assert mode([1, 2, 2, 3, 4]) == [2]
+    assert mode([1, 1, 2, 3, 3]) == [1, 3]  
+    assert mode([1, 2, 3, 4, 5]) == "No mode"  
+    assert mode([7, 7, 7]) == [7]  
+    assert mode([1]) == [1]  
