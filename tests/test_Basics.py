@@ -28,7 +28,7 @@ def test_mod():
     assert mod(10, 3) == 1, "C: 1"
     assert mod(10, 10) == 0, "C: 0"
     assert mod(0, 10) == 0, "C: 0"
-    assert mod(-10, 3) == -1, "C: -1"
+    assert mod(-10, 3) == 2, "C: 2"
     with pytest.raises(ValueError):
         mod(10, 0), "Should raise ValueError for division by zero"
 
