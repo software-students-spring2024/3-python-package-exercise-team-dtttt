@@ -1,3 +1,5 @@
+import math
+
 def add(x, y):
     return x + y
 
@@ -39,3 +41,33 @@ def stringParse(input):
     else:
         raise ValueError(f"Unsupported operation: {operator}")
 
+def log(x,y):
+    # value x, base y, works only for int results
+    if y == 1 or x <= 0 or y <= 0:
+        raise ValueError("x, y must be positive, y shouldn't be 1")
+    return round(math.log(x,y))
+
+def exp(x, y):
+    if y < 0:
+        x = 1/x
+        y = -y
+    res = 1
+    for i in range(y):
+        res *= x
+    return res
+
+def abs(x):
+    if x < 0:
+        x = -x
+    return x
+
+def factorial(x, val = {}):
+    if x < 0:
+        raise ValueError("x must be positive")
+    if x in val:
+        return val[x]
+    if x == 0:
+        val[x] = 1
+        return 1
+    val[x] = x*factorial(x-1, val)
+    return val[x]
