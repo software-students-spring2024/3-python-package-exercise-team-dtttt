@@ -75,3 +75,27 @@ def factorial(x, val = {}):
         return 1
     val[x] = x*factorial(x-1, val)
     return val[x]
+
+def mean(list):
+    return sum(list) / len(list)
+
+def median(list):
+    list.sort()
+    n = len(list)
+    mid = n // 2
+    if n % 2 == 0:  
+        return (list[mid - 1] + list[mid]) / 2.0
+    else:  
+        return list[mid]
+
+def mode(numbers):
+    if len(numbers) == 1:
+        return numbers  
+    frequency = {}
+    for number in numbers:
+        frequency[number] = frequency.get(number, 0) + 1
+    max_freq = max(frequency.values())
+    modes = [key for key, val in frequency.items() if val == max_freq]
+    if len(modes) == len(numbers):
+        return "No mode" 
+    return modes
