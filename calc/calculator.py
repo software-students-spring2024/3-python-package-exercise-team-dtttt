@@ -1,28 +1,13 @@
 import math
-import re
+import random
 
+# user welcome prompts 
 print('Welcome to calculator!\n')
-print('Availible operations are: +, -, /, *, mod, log, exp\n')
+print('Availible operations are: +, -, /, *, mod, log, exp, abs, factorial, mean, median, mode\n')
 print('Enter your query in the following format: "stringParse("number1 operation number2:). For example, stringParse("5 + 7")":')
 
 
-def add(x, y):
-    return x + y
-
-def subtract(x, y):
-    return x - y
-
-def multiply(x, y):
-    return x * y
-
-def divide(x, y):
-    if y == 0:
-        raise ValueError("Cannot divide by zero.")
-    return x / y
-def mod(x, y):
-    if y == 0:
-        raise ValueError("Cannot mod by zero.")
-    return x % y
+# stringParse() start 
 def stringParse(input):
     # no  parentheses, operator precedence, or numbers without spaces around the operators
 
@@ -30,9 +15,12 @@ def stringParse(input):
     there are non-space characters where the spaces are supposed to be then the input
     string cant be split and is treated as one giant string, thus throwing an error """
     parsed_string = str(input).split(' ')
-
-    if (parsed_string[0].isnumeric() == False or parsed_string[2].isnumeric() == False):
-        raise ValueError("number1 and number2 must be numbers with a space after number1 and a space before number2")
+    
+    ##????????????
+    #if (parsed_string[0].isnumeric() == False or parsed_string[len(parsed_string)-1].isnumeric() == False):
+        #print(parsed_string)
+        
+        #raise ValueError("number1 and number2 must be numbers with a space after number1 and a space before number2")
     
 
     if len(parsed_string) != 3:
@@ -57,13 +45,47 @@ def stringParse(input):
         return log(x, y)
     elif operator.lower() == 'exp':
         return exp(x, y)
+    elif operator.lower() == 'abs': 
+        return abs(x, y)
+    elif operator.lower() == 'factorial':
+        return factorial(x, y)
+    elif operator.lower() == 'mean':
+        return mean(x, y)
+    elif operator.lower() == 'median':
+        return median(x, y)
+    
+    elif operator.lower() == 'mode':
+        return mode(x, y)
+    
+    elif operator.lower() == 'randomnumsrange':
+        return randomnumsrange(x, y)
     else:
+        print(operator.lower())
         raise ValueError(f"Unsupported operation: {operator}")
+        
+# stringParse() end 
 
 
 
+# functions area start
+def add(x, y):
+    return x + y
 
+def subtract(x, y):
+    return x - y
 
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        raise ValueError("Cannot divide by zero.")
+    return x / y
+
+def mod(x, y):
+    if y == 0:
+        raise ValueError("Cannot mod by zero.")
+    return x % y
 
 def log(x,y):
     # value x, base y, works only for int results
@@ -76,6 +98,9 @@ def exp(x, y):
         x = 1/x
         y = -y
     res = 1
+    if (x < 0 and y == 0) or (x == 0 and y < 0):
+        res = -1
+
     for i in range(int(y)):
         res *= x
     return res
@@ -119,3 +144,27 @@ def mode(numbers):
     if len(modes) == len(numbers):
         return "No mode" 
     return modes
+
+def randomnumsrange(x, y):
+    num1 = int(x)
+    num2 = int(y)
+    if (num1 < 0 or num2 < 0):
+        raise ValueError("number1 and number2 muust both be greater than or equal to zero.")
+
+    else:
+        random_nums = []
+        for i in range(num2):
+            random_num = random.randint(0, num1)
+            random_nums.append(random_num)
+    #print(f'You have chosen to generate random numbers in between 0 and {num1}, {num2} times:\n{random_nums}')
+    return random_nums
+
+
+
+
+
+
+
+
+# functions area end 
+
