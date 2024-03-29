@@ -3,7 +3,7 @@ import random
 
 # user welcome prompts 
 print('Welcome to calculator!\n')
-print('Availible operations are: +, -, /, *, mod, log, exp, abs, factorial, mean, median, mode\n')
+print('Availible operations are: +, -, /, *, mod, log, exp, abs, factorial, mean, median, mode, randomnumsrange\n')
 print('Enter your query in the following format: "stringParse("number1 operation number2:). For example, stringParse("5 + 7")":')
 
 
