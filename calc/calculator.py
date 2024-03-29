@@ -1,4 +1,10 @@
 import math
+import re
+
+print('Welcome to calculator!\n')
+print('Availible operations are: +, -, /, *, mod, log, exp\n')
+print('Enter your query in the following format: "stringParse("number1 operation number2:). For example, stringParse("5 + 7")":')
+
 
 def add(x, y):
     return x + y
@@ -19,12 +25,21 @@ def mod(x, y):
     return x % y
 def stringParse(input):
     # no  parentheses, operator precedence, or numbers without spaces around the operators
-    parts = input.split()
 
-    if len(parts) != 3:
+    """splits by spaces so if there's no spaces or
+    there are non-space characters where the spaces are supposed to be then the input
+    string cant be split and is treated as one giant string, thus throwing an error """
+    parsed_string = str(input).split(' ')
+
+    if (parsed_string[0].isnumeric() == False or parsed_string[2].isnumeric() == False):
+        raise ValueError("number1 and number2 must be numbers with a space after number1 and a space before number2")
+    
+
+    if len(parsed_string) != 3:
+        print(len(parsed_string))
         raise ValueError("Input should be in the format: 'number1 operation number2'")
 
-    xTr, operator, yTr = parts
+    xTr, operator, yTr = parsed_string
     x = float(xTr)
     y = float(yTr)
 
@@ -44,6 +59,11 @@ def stringParse(input):
         return exp(x, y)
     else:
         raise ValueError(f"Unsupported operation: {operator}")
+
+
+
+
+
 
 def log(x,y):
     # value x, base y, works only for int results
