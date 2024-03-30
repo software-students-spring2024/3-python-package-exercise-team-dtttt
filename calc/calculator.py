@@ -3,7 +3,7 @@ import random
 
 # user welcome prompts 
 print('Welcome to calculator!\n')
-print('Availible operations are: +, -, /, *, mod, log, exp, abs, factorial, mean, median, mode, randomnumsrange\n')
+print('Availible operations are: +, -, /, *, mod, log, exp, abs, factorial, mean, median, mode, randomnumsrange, cubesurfacearea\n')
 print('Enter your query in the following format: "stringParse("number1 operation number2:). For example, stringParse("5 + 7")":')
 
 
@@ -53,12 +53,12 @@ def stringParse(input):
         return mean(x, y)
     elif operator.lower() == 'median':
         return median(x, y)
-    
     elif operator.lower() == 'mode':
         return mode(x, y)
-    
     elif operator.lower() == 'randomnumsrange':
         return randomnumsrange(x, y)
+    elif operator.lower() == 'cubesurfacearea':
+        return cubesurfacearea(x, y)
     else:
         print(operator.lower())
         raise ValueError(f"Unsupported operation: {operator}")
@@ -156,8 +156,14 @@ def randomnumsrange(x, y):
         for i in range(num2):
             random_num = random.randint(0, num1)
             random_nums.append(random_num)
-    #print(f'You have chosen to generate random numbers in between 0 and {num1}, {num2} times:\n{random_nums}')
+    # print(f'You have chosen to generate random numbers in between 0 and {num1}, {num2} times:\n{random_nums}')
     return random_nums
+
+def cubesurfacearea (x, y):
+    # x = surface area, length of the side of the cube 
+    if (x <= 0 or y <= 0):
+        raise ValueError("number1 and number2 muust both be greater than zero.")
+    return x * (exp(y, y))
 
 
 
