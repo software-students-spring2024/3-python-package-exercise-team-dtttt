@@ -148,4 +148,4 @@ To modify functions in calculator please view calc folder with [calculator.py](c
 Please commit to a feature branch and submit a merge request for any edits
 
 ## Link to Project on PyPI Website 
-(PyPi)[https://pypi.org/project/CalculatorPackSEDTTT/1.0.3/]
+[PyPi](https://pypi.org/project/CalculatorPackSEDTTT/1.0.3/)
