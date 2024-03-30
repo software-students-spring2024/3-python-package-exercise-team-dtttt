@@ -1,4 +1,6 @@
-# Place Badge Here: 
+# Python Package Exercise
+[![log github events](https://github.com/software-students-spring2024/3-python-package-exercise-team-dtttt/actions/workflows/event-logger.yml/badge.svg)](https://github.com/software-students-spring2024/3-python-package-exercise-team-dtttt/actions/workflows/event-logger.yml)
+
 
 ## Team members
 
@@ -18,9 +20,9 @@ abs, factorial, mean, median, and mode.
 ### Pipenv Installation:
 Ensure pipenv is installed:
 if not:
-'''
+```
 pip install pipenv
-'''
+```
 
 
 ### Integration of project into your existing code 
@@ -31,20 +33,20 @@ If you want to integrate our project code into your code, you can do so by...
 
 You can install calculator project by using pip:
 
-'''
-pipenv install CalculatorPackSEDTTT==2.0
-'''
+```
+pipenv install CalculatorPackSEDTTT==1.0.3
+```
 
 Install Dependecies if needed:
-'''
+```
 pipenv install
-'''
+```
 
 #### Usage
 To use it in your code, please import functions needed
-'''
+```
 from calc import add, subtract, multiply, divide, mod, stringParse, log, exp, abs, factorial, mean, median, mode, randomnumsrange, cubesurfacearea
-'''
+```
 
 Below is documentation for methods to be used in code
 
@@ -101,43 +103,42 @@ Please look at [example.py](example.py)
 ### Contribution
 
 #### Create a fork then clone:
-'''
+```
 git clone https://github.com/software-students-spring2024/3-python-package-exercise-team-dtttt.git
-'''
+```
 
 Ensure pipenv is installed according to above instructions
 
-#### Dependecies:
-'''
-pipenv install
-'''
-
 #### Start Virtual Environment:
-'''
+```
 pipenv shell
-'''
+```
 
+#### Dependecies:
+```
+pipenv install
+```
 #### Build
 Ensure Build is installed if not:
-'''
-pip install build
-'''
+```
+pipenv install build
+```
 
 Run:
-'''
+```
 python -m build
-'''
+```
 on Windows
  
-'''
+```
 python3 -m build
-'''
+```
 on Mac
 
 #### Running Tests
-'''
+```
 pytest
-'''
+```
 
 pytest will run the tests you can add more to tests under [tests](tests/test_Basics.py)
 
@@ -147,4 +148,4 @@ To modify functions in calculator please view calc folder with [calculator.py](c
 Please commit to a feature branch and submit a merge request for any edits
 
 ## Link to Project on PyPI Website 
-(PyPI)[]
+(PyPI)[https://pypi.org/project/CalculatorPackSEDTTT/1.0.3/]
