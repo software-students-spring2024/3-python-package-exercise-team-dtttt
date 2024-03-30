@@ -1,5 +1,5 @@
 import pytest
-from calc import add, subtract, multiply, divide, mod, stringParse, log, exp, abs, factorial, mean, median, mode
+from calc import add, subtract, multiply, divide, mod, stringParse, log, exp, abs, factorial, mean, median, mode, randomnumsrange, cubesurfacearea
 
 
 def test_add():
@@ -81,6 +81,14 @@ def test_exp():
     assert exp(1, 10) == 1
     assert exp(4, -1) == 0.25 
 
+def test_stringParse_exp():
+    assert stringParse("7 exp 3") == 343
+    assert stringParse("4 exp 0") == 1
+    assert stringParse("-4 exp 0") == -1
+    assert stringParse("0 exp 0") == 1
+    assert stringParse("-5 exp -3") == -0.008000000000000002
+    
+
 def test_abs():
     assert abs(0) == 0
     assert abs(-2) == 2
@@ -123,3 +131,30 @@ def test_mode():
     assert mode([1, 2, 3, 4, 5]) == "No mode"  
     assert mode([7, 7, 7]) == [7]  
     assert mode([1]) == [1]  
+
+def test_randomnumsrange():
+    with pytest.raises(ValueError):
+        stringParse("-6 randomnumsrange -8"), "C: raise ValueError"
+    with pytest.raises(ValueError):
+        stringParse("-40 randomnumsrange 7"), "C: raise ValueError"
+    with pytest.raises(ValueError):
+        stringParse("2 randomnumsrange -30"), "C: raise ValueError"
+
+def test_randomnumsrange_stringParse():
+    assert stringParse("0 randomnumsrange 0") == []
+    assert stringParse("0 randomnumsrange 1") == [0]
+    assert stringParse("1 randomnumsrange 0") == []
+
+def test_cubesurfacearea():
+    assert stringParse("12 cubesurfacearea 2") == 48
+    assert stringParse("1 cubesurfacearea 1") == 1
+    with pytest.raises(ValueError):
+        stringParse("-90 cubesurfacearea -21"), "C: raise ValueError"
+    with pytest.raises(ValueError):
+        stringParse("0 cubesurfacearea 0"), "C: raise ValueError"
+    with pytest.raises(ValueError):
+        stringParse("-5 cubesurfacearea 12"), "C: raise ValueError"
+
+def test_cubesurfacearea_stringParse():
+    assert stringParse("1 cubesurfacearea 1") == 1
+    assert stringParse("10 cubesurfacearea 2") == 40
