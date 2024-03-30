@@ -2,18 +2,12 @@ import math
 import random
 
 # user welcome prompt and instruction 
-# with open("calc_instructions.txt") as f:
-#     for line in f:
-#         #do something with line
-#         print(line)
+print('Welcome to Calculator! Enter your prompt below:')
 
 # stringParse() start 
 def stringParse(input):
     # no  parentheses, operator precedence, or numbers without spaces around the operators
 
-    """splits by spaces so if there's no spaces or
-    there are non-space characters where the spaces are supposed to be then the input
-    string cant be split and is treated as one giant string, thus throwing an error """
     parsed_string = str(input).split(' ')
 
     if len(parsed_string) != 3:
@@ -148,7 +142,6 @@ def randomnumsrange(x, y):
         for i in range(num2):
             random_num = random.randint(0, num1)
             random_nums.append(random_num)
-    # print(f'You have chosen to generate random numbers in between 0 and {num1}, {num2} times:\n{random_nums}')
     return random_nums
 
 def cubesurfacearea (x):
@@ -156,8 +149,6 @@ def cubesurfacearea (x):
     if (x <= 0):
         raise ValueError("number1 and number2 muust both be greater than zero.")
     return 6 * (exp(x, x))
-
-
 
 # functions area end 
 
