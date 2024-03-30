@@ -147,6 +147,8 @@ def test_randomnumsrange_stringParse():
 
 def test_cubesurfacearea():
     assert cubesurfacearea(2) == 24
+    assert cubesurfacearea(10) == 600
+    assert cubesurfacearea(2.5) == 37.5
     with pytest.raises(ValueError):
         stringParse("-5"), "C: raise ValueError"
     with pytest.raises(ValueError):

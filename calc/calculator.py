@@ -148,7 +148,7 @@ def cubesurfacearea (x):
     # x = surface area, length of the side of the cube 
     if (x <= 0):
         raise ValueError("number1 and number2 muust both be greater than zero.")
-    return 6 * (exp(x, x))
+    return 6 * (x * x)
 
 # functions area end 
 

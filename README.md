@@ -91,8 +91,7 @@ of numbers in the array, returning the average.
 **mode(numbers)**: this function takes in a list of numbers and returns the number that appears most 
 often.   
 
-**cubesurfacearea(x)**: this function takes in a number, calls our exp function with x, then multiplies the value 
-returned by our exp function by 6 to get the surface area of a cube. 
+**cubesurfacearea(x)**: this function takes in a number, is multiplied by itself then multiplies that product by 6 to get the surface area of a cube. 
 
 
 #### Example Usage
