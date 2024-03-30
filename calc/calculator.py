@@ -62,9 +62,8 @@ def stringParse(input):
     else:
         print(operator.lower())
         raise ValueError(f"Unsupported operation: {operator}")
-        
-# stringParse() end 
 
+# stringParse() end 
 
 
 # functions area start
@@ -164,13 +163,6 @@ def cubesurfacearea (x, y):
     if (x <= 0 or y <= 0):
         raise ValueError("number1 and number2 muust both be greater than zero.")
     return x * (exp(y, y))
-
-
-
-
-
-
-
 
 # functions area end 
 
