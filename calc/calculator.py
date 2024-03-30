@@ -1,11 +1,11 @@
 import math
 import random
 
-# user welcome prompts 
-print('Welcome to calculator!\n')
-print('Availible operations are: +, -, /, *, mod, log, exp, abs, factorial, mean, median, mode, randomnumsrange, cubesurfacearea\n')
-print('Enter your query in the following format: "stringParse("number1 operation number2:). For example, stringParse("5 + 7")":')
-
+# user welcome prompt and instruction 
+# with open("calc_instructions.txt") as f:
+#     for line in f:
+#         #do something with line
+#         print(line)
 
 # stringParse() start 
 def stringParse(input):
@@ -15,13 +15,6 @@ def stringParse(input):
     there are non-space characters where the spaces are supposed to be then the input
     string cant be split and is treated as one giant string, thus throwing an error """
     parsed_string = str(input).split(' ')
-    
-    ##????????????
-    #if (parsed_string[0].isnumeric() == False or parsed_string[len(parsed_string)-1].isnumeric() == False):
-        #print(parsed_string)
-        
-        #raise ValueError("number1 and number2 must be numbers with a space after number1 and a space before number2")
-    
 
     if len(parsed_string) != 3:
         print(len(parsed_string))
@@ -158,11 +151,13 @@ def randomnumsrange(x, y):
     # print(f'You have chosen to generate random numbers in between 0 and {num1}, {num2} times:\n{random_nums}')
     return random_nums
 
-def cubesurfacearea (x, y):
+def cubesurfacearea (x):
     # x = surface area, length of the side of the cube 
-    if (x <= 0 or y <= 0):
+    if (x <= 0):
         raise ValueError("number1 and number2 muust both be greater than zero.")
-    return x * (exp(y, y))
+    return 6 * (exp(x, x))
+
+
 
 # functions area end 
 
